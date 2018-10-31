@@ -12,6 +12,6 @@ cat.makeSound() //miau
 
 makeSound() //undefined
 
-makeSound.apply(cat)
+makeSound.apply({sound: 'wow'})
 
 makeSound.call(cat)
