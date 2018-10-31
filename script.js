@@ -1,16 +1,16 @@
-function Dog() {
+function Dog(name) {
     this.sound = 'woof'
-    this.makeSound = function () {
-        console.log(this.sound)
-    }
+    this.name = name
 }
 
 Dog.prototype.makeSound = function () {
     console.log(this.sound)
 }
 
-const dog0 = Dog()
-const dog1 = new Dog() 
-const dog2 = new Dog()
+Dog.prototype.sound = 'buuum'
 
-dog2.makeSound()
+const dog0 = Dog()
+const dog1 = new Dog('klebuszek') 
+const dog2 = new Dog('puszek')
+
+dog1.makeSound()
