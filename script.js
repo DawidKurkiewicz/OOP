@@ -15,14 +15,6 @@
 //     growJSskill: growJSskill
 // }
 
-// const brothers = {
-//     for (let i = 0; i > 100; i ++){
-
-//     }
-// }
-
-
-
 
 // me.growJSskill()
 // brother.growJSskill()
