@@ -35,7 +35,6 @@ const makePerson = function (name, initialSkill) {
 const me = makePerson ('dawid' , 999)
 
 
-const brothers = []
-for(let i = 0; i < 100; i++){
-    brothers[i] = makePerson(i, i + 1)
-}
+const brothers = Array(100)
+.fill(0)
+.map((e, i) => makePerson (i , i + 1))
