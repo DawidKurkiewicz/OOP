@@ -7,4 +7,11 @@ const cat = {
     sound: 'miau',
     makeSound: makeSound
 }
-cat.makeSound()
+
+cat.makeSound() //miau
+
+makeSound() //undefined
+
+makeSound.apply(cat)
+
+makeSound.call(cat)
