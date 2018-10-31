@@ -1,3 +1,12 @@
+const myOwnNew = (constructorFn, argsArray) => {
+    const newInstance = Object.create(constructorFn.prototype)
+
+    constructorFn.apply(newInstance, argsArray)
+    return newInstance
+}
+
+
+
 function Dog(name) {
     this.sound = 'woof'
     this.name = name
@@ -9,8 +18,5 @@ Dog.prototype.makeSound = function () {
 
 Dog.prototype.sound = 'buuum'
 
-const dog0 = Dog()
-const dog1 = new Dog('klebuszek') 
-const dog2 = new Dog('puszek')
-
+const dog1 = myOwnNew (Dog, ['Puszek'])
 dog1.makeSound()
