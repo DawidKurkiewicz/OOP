@@ -1,5 +1,5 @@
-const makeSound = function () {
-console.log(this.sound)
+const makeSound = function (name, lastname) {
+console.log(this.sound + ' ' + name + ' ' + lastname)
 }
 
 const cat = {
@@ -8,10 +8,21 @@ const cat = {
     makeSound: makeSound
 }
 
-cat.makeSound() //miau
 
-makeSound() //undefined
 
-makeSound.apply({sound: 'wow'})
+makeSound.apply(cat, ['dawid', 'kurka'])
 
-makeSound.call(cat)
+makeSound.call(cat, 'dawid', 'kurka')
+
+
+makeSound.apply({ sound: 'wow'}, ['dawid', 'kurka'])
+
+makeSound.call({ sound: 'wow'}, 'dawid', 'kurka')
+
+makeSound('dawid', 'kurk')
+
+cat.makeSound('dawid', 'kurka', 'bom')
+
+
+
+
