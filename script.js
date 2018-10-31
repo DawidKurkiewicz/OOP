@@ -1,28 +1,16 @@
-const makeSound = function (name, lastname) {
-console.log(this.sound + ' ' + name + ' ' + lastname)
+function Dog() {
+    this.sound = 'woof'
+    this.makeSound = function () {
+        console.log(this.sound)
+    }
 }
 
-const cat = {
-    name: 'filemon',
-    sound: 'miau',
-    makeSound: makeSound
+Dog.prototype.makeSound = function () {
+    console.log(this.sound)
 }
 
+const dog0 = Dog()
+const dog1 = new Dog() 
+const dog2 = new Dog()
 
-
-makeSound.apply(cat, ['dawid', 'kurka'])
-
-makeSound.call(cat, 'dawid', 'kurka')
-
-
-makeSound.apply({ sound: 'wow'}, ['dawid', 'kurka'])
-
-makeSound.call({ sound: 'wow'}, 'dawid', 'kurka')
-
-makeSound('dawid', 'kurk')
-
-cat.makeSound('dawid', 'kurka', 'bom')
-
-
-
-
+dog2.makeSound()
