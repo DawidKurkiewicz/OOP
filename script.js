@@ -1,7 +1,10 @@
+const makeSound = function () {
+console.log(this.sound)
+}
+
 const cat = {
     name: 'filemon',
     sound: 'miau',
-    makeSound: function ()  {
-        console.log(this.sound)
-    }
+    makeSound: makeSound
 }
+cat.makeSound()
