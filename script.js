@@ -30,9 +30,12 @@ const makePerson = function (name, initialSkill) {
         growJSskill: growJSskill
     }
 }
-const me = makePerson('Dawid', 100)
-const brother = makePerson('jan', 10)
 
 
-me.growJSskill()
-brother.growJSskill()
+const me = makePerson ('dawid' , 999)
+
+
+const brothers = []
+for(let i = 0; i < 100; i++){
+    brothers[i] = makePerson(i, i + 1)
+}
