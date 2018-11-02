@@ -11,6 +11,10 @@ function SideBarMenu(color, direction) {   // funkcja fabryka
     this.init()
 }
 SideBarMenu.prototype.init = function () {
+    new ClickableButton (
+        'Toggle Menu',
+        this.toggleMenu.bind(this)
+    )
     this.render()
 }
 SideBarMenu.prototype.render = function () {  //funkcja render
