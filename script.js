@@ -44,13 +44,31 @@
 // me.sayHello();
 
 
-function SideBarMenu () {
+
+
+
+
+function SideBarMenu() {
     this.isOpen = true
     this.isOnTheLeft = true
     this.isOneTheRight = false
     this.bgColor = 'red'
-
 }
 
+SideBarMenu.prototype.render = function () {
+    const menuDiv = document.createElement('div')
+
+    //Add styles here
+
+
+    menuDiv.style.backgroundColor = this.bgColor
+    menuDiv.style.width = '30%';
+    menuDiv.style.height = '100vh';
+    menuDiv.style.position = 'fixed';
+    menuDiv.style.top = '0';
+
+    document.body.appendChild(menuDiv)
+}
 
 const menu1 = new SideBarMenu();
+menu1.render()
