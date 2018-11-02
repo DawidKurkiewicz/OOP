@@ -62,10 +62,17 @@ SideBarMenu.prototype.render = function () {
 
 
     menuDiv.style.backgroundColor = this.bgColor
-    menuDiv.style.width = '30%';
+    menuDiv.style.width = '200px';
     menuDiv.style.height = '100vh';
     menuDiv.style.position = 'fixed';
     menuDiv.style.top = '0';
+
+
+
+    if(this.OnTheLeft) menuDiv.style.left = '0'
+    if(this.OnTheRight) menuDiv.style.right = '0'
+
+
 
     document.body.appendChild(menuDiv)
 }
