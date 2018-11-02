@@ -1,65 +1,18 @@
-// function Dog(name) {
-//     this.sound = 'woof'
-//     this.name = name
-// }
-
-// Dog.prototype.makeSound = function () {
-//     console.log(this.sound)
-// }
-
-// Dog.prototype.sound = 'buuum'
-
-// const dog0 = Dog()
-// const dog1 = new Dog('klebuszek') 
-// const dog2 = new Dog('puszek')
-
-// dog1.makeSound()
-
-// const myOwnNew = (constructorFn, argsArray) => {
-//     const newInstance = Object.create(constructorFn.prototype)
-//     constructorFn.apply(newInstance, argsArray)
-//     return newInstance
-// }
-// function Dog(name) {
-//     this.sound = 'woof'
-//     this.name = name
-// }
-// Dog.prototype.makeSound = function () {
-//     console.log(this.sound)
-// }
-// Dog.prototype.sound = 'buuum'
-// const dog1 = myOwnNew (Dog, ['Puszek'])
-// dog1.makeSound()
-
-
-
-
-// function Person(name) {
-//     this.name = name;
-// }
-// Person.prototype.sayHello = function () {
-//     console.log(`Hi, I'm ${this.name}`)
-// }
-// const me = new Person('dawid');
-// me.sayHello();
-
-
-
-
-
-
-function SideBarMenu() {
+function SideBarMenu(color, direction) {   // funkcja fabryka
     this.isOpen = true
-    this.isOnTheLeft = true
-    this.isOneTheRight = false
-    this.bgColor = 'red'
+    this.isOnTheLeft = direction === 'left' ? true : false
+    this.isOneTheRight = direction === 'right' ? true : false
+    this.bgColor = color || 'red'
+
+    if (!this.isOnTheLeft && !this.isOnTheRight) {
+        this.isOnTheLeft = true
+    }
 }
 
-SideBarMenu.prototype.render = function () {
-    const menuDiv = document.createElement('div')
+SideBarMenu.prototype.render = function () {  //funkcja render
+    const menuDiv = document.createElement('div') // tworzymy element
 
-    //Add styles here
-
+        //to są style 
 
     menuDiv.style.backgroundColor = this.bgColor
     menuDiv.style.width = '200px';
@@ -69,12 +22,14 @@ SideBarMenu.prototype.render = function () {
 
 
 
-    if(this.OnTheLeft) menuDiv.style.left = '0'
-    if(this.OnTheRight) menuDiv.style.right = '0'
+    if (this.isOnTheLeft) menuDiv.style.left = '0'
+    if (this.isOnTheRight) menuDiv.style.right = '0'
+    if (!this.isOpen) menuDiv.style.display = 'none' // ! bo jest zaprzeczenie
 
 
 
-    document.body.appendChild(menuDiv)
+
+    document.body.appendChild(menuDiv) // wrzucamy element do body
 }
 
 const menu1 = new SideBarMenu();
