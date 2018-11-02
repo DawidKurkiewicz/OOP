@@ -1,20 +1,24 @@
 function Game() {
-    this.boardArr = [
-        [1, 1, 1, 1],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-    ]
+    this.initialBoardArr = (
+        Array(20)
+            .fill(1)
+            .map(el => (
+                Array(20)
+                    .fill(1)
+                    .map(el => Math.round(Math.random()* 1.49))
+            ))
+    )
+    this.boardArr = null
     this.playerPosition = {
         x: 0,
-        y: 0
+        y: 1
     }
 
     this.init()
 }
 Game.prototype.init = function () {
-    this.startListeningToArrows ()
-    this.render ()
+    this.startListeningToArrows()
+    this.render()
 }
 Game.prototype.render = function () {
     document.body.innerHTML = ''
@@ -48,11 +52,50 @@ Game.prototype.renderSingleCell = function (cell, rowDiv) {
 }
 
 Game.prototype.composeBoard = function () {
+    this.boardArr = JSON.parse(JSON.stringify(this.initialBoardArr))
     this.boardArr[this.playerPosition.y][this.playerPosition.x] = 'P'
 }
 Game.prototype.startListeningToArrows = function () {
     window.addEventListener(
         'keydown',
-        event => console.log(event.key)
+        event => {
+            switch (event.key) {
+                case 'ArrowUp':
+                    event.preventDefault()
+                    this.checkIfMoveIsAvailable(0, -1)
+                    break
+                case 'ArrowDown':
+                    event.preventDefault()
+                    this.checkIfMoveIsAvailable(0, 1)
+                    break
+                case 'ArrowLeft':
+                    event.preventDefault()
+                    this.checkIfMoveIsAvailable(-1, 0)
+                    break
+                case 'ArrowRight':
+                    event.preventDefault()
+                    this.checkIfMoveIsAvailable(1, 0)
+                    break
+
+            }
+
+        }
     )
+}
+Game.prototype.checkIfMoveIsAvailable = function (deltaX, deltaY) {
+    const newPlayerPosition = {
+        x: this.playerPosition.x + deltaX,
+        y: this.playerPosition.y + deltaY
+    }
+    if (
+        this.boardArr[newPlayerPosition.y] &&
+        this.boardArr[newPlayerPosition.y][newPlayerPosition.x]
+    ) {
+        this.move(newPlayerPosition)
+    }
+}
+Game.prototype.move = function (newPlayerPosition) {
+    this.playerPosition = newPlayerPosition
+
+    this.render()
 }
