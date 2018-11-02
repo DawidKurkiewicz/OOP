@@ -13,10 +13,10 @@
     <script src = 'ClickableButton.js'></script>
     <script src='SideBarMenu.js'></script>
     <script>
-
+        const menu2 = new SideBarMenu ('green', 'right')
         const button = new ClickableButton(
             'kliknij mnie',
-            () => alert('jup123ii!!!')
+            () => menu2.toggleMenu ()
         )
     </script>
 

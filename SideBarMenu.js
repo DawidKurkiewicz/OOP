@@ -42,3 +42,4 @@ SideBarMenu.prototype.toggleMenu = function () {
     this.render()
 }
 
+
