@@ -14,8 +14,8 @@ SideBarMenu.prototype.init = function () {
     this.render()
 }
 SideBarMenu.prototype.render = function () {  //funkcja render
-    if(this.menuDiv) this.menuDiv.remove()
-    
+    if (this.menuDiv) this.menuDiv.remove()
+
     this.menuDiv = document.createElement('div') // tworzymy element
 
     //to są style 
@@ -41,12 +41,4 @@ SideBarMenu.prototype.toggleMenu = function () {
     }
     this.render()
 }
-
-
-const menu1 = new SideBarMenu();
-
-
-const menu2 = new SideBarMenu('green', 'right')
-menu2.toggleMenu()
-
 
