@@ -1,5 +1,5 @@
 const makeCat = () => ({
-    makeSound: console.log('mia')
-    })
+    makeSound: () => console.log('mia')
+})
 const cat = makeCat()
 cat.makeSound()
