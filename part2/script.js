@@ -1,7 +1,4 @@
-// function ToDo() {
-//     this.task = []
-//     this.render()
-// }
+//classes
 class ToDo {
     constructor() {
         this.task = []
@@ -41,6 +38,20 @@ class ToDo {
 
 
 }
+class Task {
+    constructor(text) {
+        this.text = text
+    }
+}
+
+
+//classes
+
+
+// function ToDo() {
+//     this.task = []
+//     this.render()
+// }
 // ToDo.prototype.addTask = function (text) {
 //     this.task.push(new Task(text))
 //     this.render()
@@ -64,21 +75,14 @@ class ToDo {
 //         'click',
 //         () => this.addTask(input.value)
 //         //(function() { this.addTask(input.value) }).bind(this)
-
 //     )
 //     document.body.appendChild(input)
 //     document.body.appendChild(button)
-
 // }
-
 // function Task(text) {
 //     this.text = text
 // }
-class Task {
-    constructor(text) {
-        this.text = text
-    }
-}
+
 
 const toDo1 = new ToDo()
 
